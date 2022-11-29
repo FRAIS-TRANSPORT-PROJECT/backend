@@ -1,0 +1,36 @@
+spring:
+  config:
+    import: 'optional:file:.env[.properties]'
+
+  output:
+    ansi:
+      enabled: always
+
+  banner:
+    location: 'banner.txt'
+
+  datasource:
+    url: 'jdbc:postgresql://${DB_HOST}:5432/${DB_NAME}'
+    username: '${DB_USERNAME}'
+    password: '${DB_PASSWORD}'
+
+  jpa:
+    hibernate:
+      ddl-auto: 'update'
+    show-sql: 'true'
+    properties:
+      hibernate:
+        dialect: 'org.hibernate.dialect.PostgreSQLDialect'
+        '[format_sql]': 'true'
+
+  data:
+    rest:
+      base-path: '/api/v1'
+      default-media-type: 'application/json'
+  #       default-page-size: 10
+
+  hateoas:
+    use-hal-as-default-json-media-type: 'false'
+
+server:
+  port: '${SERVER_PORT:8080}'
