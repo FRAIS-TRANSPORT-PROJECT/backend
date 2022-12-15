@@ -18,13 +18,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // http.authorizeHttpRequests().antMatchers(Constants.API_PREFIX + "/devs/**").hasRole(Constants.getRole("dev"));
-        // http.authorizeHttpRequests().antMatchers(Constants.API_PREFIX + "/admins/**").hasRole(Constants.getRole("admin"));
-        // http.authorizeHttpRequests().antMatchers(Constants.API_PREFIX + "/clients/**").hasRole(Constants.getRole("client"));
+        // http.authorizeHttpRequests().antMatchers(Constants.API_PREFIX +
+        // "/devs/**").hasRole(Constants.getRole("dev"));
+        // http.authorizeHttpRequests().antMatchers(Constants.API_PREFIX +
+        // "/admins/**").hasRole(Constants.getRole("admin"));
+        // http.authorizeHttpRequests().antMatchers(Constants.API_PREFIX +
+        // "/clients/**").hasRole(Constants.getRole("client"));
         // http.authorizeRequests().anyRequest().authenticated();
         // http.httpBasic();
         http.cors().and().csrf().disable();
-        // http.authorizeHttpRequests().anyRequest().permitAll();
+        http.authorizeHttpRequests().anyRequest().permitAll();
 
     }
 }
