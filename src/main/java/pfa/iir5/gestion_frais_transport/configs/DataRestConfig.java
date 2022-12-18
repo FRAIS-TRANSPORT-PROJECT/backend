@@ -30,11 +30,6 @@ public class DataRestConfig {
                 entityManager.getMetamodel().getEntities().forEach(entity -> {
                     config.exposeIdsFor(entity.getJavaType());
                 });
-
-                entityManager.getMetamodel().getEntities().forEach(entity -> {
-                    config.getExposureConfiguration().forDomainType(entity.getJavaType())
-                            .disablePutForCreation();
-                });
             }
         };
     }
