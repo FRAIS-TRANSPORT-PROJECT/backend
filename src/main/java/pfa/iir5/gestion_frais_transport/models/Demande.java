@@ -2,10 +2,14 @@ package pfa.iir5.gestion_frais_transport.models;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import org.springframework.format.annotation.DateTimeFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -52,6 +56,10 @@ public class Demande {
 
     @Column(columnDefinition = "TEXT")
     private String justification;
+
+    @OneToMany
+    @JoinColumn(name = "demande_id")
+    private List<Document> documents;
 
     public enum Etat {
         EN_COURS, VALIDE, REFUSE, EN_ATTENTE
