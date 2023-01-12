@@ -12,7 +12,7 @@ public class CorsConfig implements RepositoryRestConfigurer {
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config,
             CorsRegistry cors) {
 
-        cors.addMapping("/**").allowedOrigins("*");
+        cors.addMapping("/**").allowedOrigins("*").allowedMethods("*").allowedHeaders("*");
 
     }
 

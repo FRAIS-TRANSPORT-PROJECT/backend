@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -60,6 +61,12 @@ public class Demande {
     @OneToMany
     @JoinColumn(name = "demande_id")
     private List<Document> documents;
+
+    @ManyToOne
+    private Demandeur demandeur;
+
+    @ManyToOne
+    private Manager manager;
 
     public enum Etat {
         EN_COURS, VALIDE, REFUSE, EN_ATTENTE
